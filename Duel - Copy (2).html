@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Duel</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        #terrain {
+            background-color: #0099FF;
+        }
+        .hisHand {
+            background-color: #9900FF;
+            padding:5%;
+    margin-left: 10%;
+    margin-right: 10%;
+        }
+        .myHand {
+            padding:5%;
+            
+    margin-left: 10%;
+    margin-right: 10%;
+        }
+        .hisTMZone1 {background-color: #66FF99;
+    padding: 5%;
+    margin-left: 10%;
+    margin-right: 90%;
+        }        
+        .hisTMZone5 {
+            background-color: #66FF99;
+    padding: 5%;
+    margin-top: -10%;
+    margin-left: 80%;
+    margin-right: 15%;
+        }
+        .hisTMZone4{
+            padding: 5%;
+    margin-left: 56%;
+    margin-top: -10%;
+    margin-right: 90%;
+    background-color: grey;
+        }
+        .hisTMZone3 {
+    padding: 5%;
+    margin-left: 37%;
+    margin-top: -10%;
+    margin-right: 90%;
+    background-color: brown;
+        }
+        .hisTMZone2 {
+            background-color: #FFFF00;    
+            padding: 5%;
+    margin-left: 24%;
+    margin-top: -10%;
+    margin-right: 90%;
+        }
+        .myTMZone1 {background-color: #66FF99;
+    padding: 5%;
+    margin-left: 10%;
+    margin-right: 90%;
+        }        
+        .myTMZone5 {
+            background-color: #66FF99;
+    padding: 5%;
+    margin-top: -10%;
+    margin-left: 80%;
+    margin-right: 15%;
+        }
+        .myTMZone4{
+            padding: 5%;
+    margin-left: 56%;
+    margin-top: -10%;
+    margin-right: 90%;
+    background-color: grey;
+        }
+        .myTMZone3 {
+    padding: 5%;
+    margin-left: 37%;
+    margin-top: -10%;
+    margin-right: 90%;
+    background-color: brown;
+        }
+        .myTMZone2 {
+            background-color: #FFFF00;    
+            padding: 5%;
+    margin-left: 24%;
+    margin-top: -10%;
+    margin-right: 90%;
+        }
+
+        .hisMonster1 {background-color: #ff66fc;
+    padding: 5%;
+    margin-left: 10%;
+    margin-right: 90%;
+        }
+        .hisMonster2 {background-color: #FFFF00;
+    padding: 5%;
+    margin-left: 24%;
+    margin-top: -10%;
+    margin-right: 90%;
+        }
+        .hisMonster3 {    padding: 5%;
+    margin-left: 37%;
+    margin-top: -10%;
+    margin-right: 90%;
+    background-color: brown;
+        }
+        .hisMonster4 {    padding: 5%;
+    margin-left: 56%;
+    margin-top: -10%;
+    margin-right: 90%;
+    background-color: white;
+        }
+        .hisMonster5 {background-color: #66FF99;
+    padding: 5%;
+    margin-top: -10%;
+    margin-left: 80%;
+    margin-right: 15%;
+        }
+        .myMonster1 {background-color: #ff66fc;
+    padding: 5%;
+    margin-left: 10%;
+    margin-right: 90%;
+        }
+        .myMonster2 {background-color: #FFFF00;
+    padding: 5%;
+    margin-left: 24%;
+    margin-top: -10%;
+    margin-right: 90%;
+        }
+        .myMonster3 {    padding: 5%;
+    margin-left: 37%;
+    margin-top: -10%;
+    margin-right: 90%;
+    background-color: brown;
+        }
+        .myMonster4 {    padding: 5%;
+    margin-left: 56%;
+    margin-top: -10%;
+    margin-right: 90%;
+    background-color: white;
+        }
+        .myMonster5 {background-color: #66FF99;
+    padding: 5%;
+    margin-top: -10%;
+    margin-left: 80%;
+    margin-right: 15%;
+        }
+        .turn{
+            background-color: orange;
+    padding: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+        }
+            
+    </style>
+</head>
+<body>
+    <div id="terrain">
+        <div class="hisHand"></div><br />
+        <div class="hisTMZone1"></div>
+        <div class="hisTMZone2"></div>
+        <div class="hisTMZone3"></div>
+        <div class="hisTMZone4"></div>
+        <div class="hisTMZone5"></div>
+        <br />
+        <div class="hisMonster1"></div>        
+        <div class="hisMonster2"></div>        
+        <div class="hisMonster3"></div>        
+        <div class="hisMonster4"></div>        
+        <div class="hisMonster5"></div>        
+        <br />
+        <div class="turn"></div>
+        <br />
+        <div class="myMonster1"></div>        
+        <div class="myMonster2"></div>        
+        <div class="myMonster3"></div>        
+        <div class="myMonster4"></div>        
+        <div class="myMonster5"></div>         <br />
+    
+        <div class="myTMZone1"></div>
+        <div class="myTMZone2"></div>
+        <div class="myTMZone3"></div>
+        <div class="myTMZone4"></div>
+        <div class="myTMZone5"></div>
+        <br>
+        <div class="myHand"></div>
+    </div>        
+    <script src="Scripts/jquery-3.1.1.js"></script>            
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="/socket.io/socket.io.js"></script>   
+    <script src="Duel.js"></script>
+    <script src="Player.js"></script>
+    <script src="Card.js"></script>
+    <script src="Monster.js"></script>
+    <script src="Attribute.js"></script>
+    <script src="MonsterType.js"></script>
+    <script src="FrameCard.js"></script>
+    <script src="MonsterZone.js"></script>
+    <script src="TrapMagicZone.js"></script>
+    <script src="Graveyard.js"></script>
+    <script src="OutZone.js"></script>
+    <script src="PendulumZone.js"></script>
+    <script src="ExtraDeckZone.js"></script>
+    <script src="FieldZone.js"></script>
+    <script src="PlayerSideField.js"></script>
+    <script src="GameField.js"></script>
+    <script src="Turn.js"></script>
+    <script src="DrawPhase.js"></script>
+    <script src="StandbyPhase.js"></script>
+    <script src="MainPhase.js"></script>
+    <script src="BattlePhase.js"></script>
+    <script src="EndPhase.js"></script>
+    <!--<script>
+        function createAllPlayersCards(me) {
+            //pour chaque carte dans le deck du joueur 1 
+            //on crée une div carte et on les ajoute dans la zone deck
+            count = 0;
+
+            me.deck.forEach(function (element) {
+                console.log("dans le deck on a " + element);
+                var carte = document.createElement('div');
+                //carte.className = 'card';
+                var laClass = 'carte' + count;
+                //carte.className = 'card';
+                //carte.className = laClass;
+                carte.addClass(laClass)
+                .css({ 'background-image': 'url(allCard/4007_1.bmp)', 'background-size': 'cover', 'background-repeat': 'round'/*, 'z-index': count*/ });
+                $('#myDeck').append(carte);
+                count = count + 1;
+            });
+
+        }
+        var socket = io.connect('http://localhost:8888/duel');
+        var session = sessionStorage;
+
+        //en fonction des pramètres du duel on configure le joueur
+        /*var me = new Player();
+        var myOpponent;
+        me.playerID = parseInt(session.getItem("userId"));
+        me.pseudo = session.getItem("userlogin");
+        me.lifePoints = 8000;
+
+        bed = new Monster("dragon blanc aux yeux bleus", "bla", 8, Attribute.light, MonsterType.dragon, 3000, 2500)
+        d = [bed, bed, bed, bed, bed, bed, bed, bed]
+        me.deck = d;
+        me.hand = [bed, bed, bed];
+        var list = [];*/
+        var me = new Player();
+        me.playerID = 1;
+        me.pseudo = ("Al");
+        me.lifePoints = 8000;
+
+        bed = new Monster("dragon blanc aux yeux bleus", "bla", 8, Attribute.light, MonsterType.dragon, 3000, 2500)
+        d = [bed, bed, bed, bed, bed, bed, bed, bed]
+        me.deck = d;
+        me.hand = [bed, bed, bed];
+        createAllPlayersCards();
+
+        //On envoie le joueur au serveur
+//socket.emit("sendPlayerToServer", { playerID: me.playerID, pseudo: me.pseudo, lifePoints: me.lifePoints, deck: me.deck, hand: me.hand, playerTurn: me.playerTurn });
+        socket.emit("sendPlayerToServer", me);
+
+            socket.on("sendDuelList", function (xyz) {
+                list = xyz;
+                if (list[0].playerID == me.playerID) {
+                    myOpponent = list[1];
+                }
+                else
+                    myOpponent = list[0];
+            });
+        
+socket.on('sendDuelInfo', function (me) {
+            myOpponent = me;
+        });
+        //On créer les div à appliquer dans le tableau de duel
+        //while (list.length < 2) {
+        if (list[0].playerID == me.playerID)
+            duel = new Duel([list[0], list[1]]);
+        else
+            duel = new Duel([list[1], list[0]]);
+        //}      
+
+        //quand on click sur dp
+        $('.dp').on('click', function () {
+            //si c'est mon tour de jouer 
+            if (me.turnToPlay == true) {
+                //j'active ma dp et je l'envoie au server
+                me.playerTurn.drawphase = true;
+                $('.dp').css("background-color", "white");
+                console.log("je pioche");
+                socket.emit('emitDrawPhase',duel);
+            }
+        }); 
+        //quand on click sur sp
+        $('.sp').on('click', function () {
+            //si c'est mon tour de jouer 
+            if (me.turnToPlay == true) {
+                //j'active ma sp et je l'envoie au server
+                me.playerTurn.drawphase = false;
+                me.playerTurn.standbyphase = true;
+                $('.sp').css("background-color", "white");
+                console.log("sp, on peut activer des effets");
+                socket.emit('emitStandByPhase', duel);
+            }
+        });
+        //quand on click sur mp1
+        $('.mp1').on('click', function () {
+            //si c'est mon tour de jouer 
+            if (me.turnToPlay == true) {
+                //j'active ma dp et je l'envoie au server
+                me.playerTurn.standbyphase = false;
+                me.playerTurn.mainphase1 = true;
+                $('.mp1').css("background-color", "white");
+                console.log("je suis en mainphase 1");
+                socket.emit('emitMainPhase1', duel);
+
+            }
+        });
+        //quand on click sur bp
+        $('.bp').on('click', function () {
+            //si c'est mon tour de jouer 
+            if (me.turnToPlay == true) {
+                //j'active ma dp et je l'envoie au server
+                me.playerTurn.mainphase1 = false;
+                me.playerTurn.battlephase = true;
+                $('.bp').css("background-color", "white");
+                console.log("je suis en battle phase");
+                socket.emit('emitBattlePhase', duel);
+
+            }
+        });
+        socket.on('getDrawPhase', function (duel) {
+            console.log("sa dp");
+        });
+        socket.on('getStandByPhase', function (duel) {
+            console.log("sa sp");
+        });
+        socket.on('getBattlePhase', function (duel) {
+            console.log("sa bp");
+        });
+        socket.on('getMainPhase1', function (duel) {
+            console.log("sa mp1");
+        });
+    </script>-->
+    <script>
+        /*function createAllPlayersCards(me) {
+            //pour chaque carte dans le deck du joueur 1 
+            //on crée une div carte et on les ajoute dans la zone deck
+            var count = 0;
+            me.deck.forEach(function (element) {
+                console.log("dans le deck on a " + element);
+                var carte = document.createElement('div');
+                //carte.className = 'card';
+                var laClass = 'carte' + count;
+                //carte.className = 'card';
+                carte.className = laClass;
+                //carte.addClass(laClass);
+                $(carte).css({ 'background-image': 'url(allCard/4007_1.bmp)', 'background-size': 'cover', 'background-repeat': 'round'/*, 'z-index': count* });
+                //carte.css({ 'background-image': 'url(allCard/4007_1.bmp)', 'background-size': 'cover', 'background-repeat': 'round'/*, 'z-index': count* });
+                $('#myDeck').append($(carte));
+                count = count + 1;
+            });
+
+        }*/
+
+        /*var carte = document.createElement('div');
+        carte.className = 'eee';
+        var me = new Player();
+        me.playerID = 1;
+        me.pseudo = ("Al");
+        me.lifePoints = 8000;
+
+        bed = new Monster("dragon blanc aux yeux bleus", "bla", 8, Attribute.light, MonsterType.dragon, 3000, 2500)
+        d = [bed, bed, bed, bed, bed, bed, bed, bed]
+        me.deck = d;
+        me.hand = [bed, bed, bed];*/
+
+        //$(document).ready(function () {
+            
+        $('#myDeck').css({ "background-color": "pink" })
+
+        $(".myHand").css("background-color", "red");
+
+       // });
+
+
+    </script>
+</body>
+</html>

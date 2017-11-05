@@ -1,0 +1,307 @@
+﻿body {
+    perspective:500px;
+}
+
+#terrain {
+    margin-top:10px;
+            height: 1038px;
+            width: 1327px;
+            background-color: #00CC00;
+            padding-left:20%;          
+           /* transform: rotateX(15deg);*/
+            transform: rotateX(25deg);
+        }
+        #mt1 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: 22px;
+            left: 9px;
+            background-color: #FFFFFF;
+        }
+        #mt2  {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -99px;
+            left: 116px;
+            background-color: #FFFFFF;
+        }
+        #mt3 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -220px;
+            left: 229px;
+            background-color: #FFFFFF;
+        }
+        #mt5  {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -464px;
+            left: 446px;
+            background-color: #FFFFFF;
+        }
+        #mt4  {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -340px;
+            left: 337px;
+            background-color: #FFFFFF;
+        }
+        #zone {
+            height: 326px;
+            width: 567px;
+            position : relative;
+            top: -667px;
+            left: 253px;
+        }
+        #deck {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: 158px;
+            left: 47px;
+            background-color: #FFFFFF;
+        }
+        #m1 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -448px;
+            left: 9px;
+            background-color: #FFFFFF;
+        }
+         #m2 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -566px;
+            left: 117px;
+            background-color: #FFFFFF;
+        }
+          #m3 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -685px;
+            left: 233px;
+            background-color: #FFFFFF;
+        }
+        #m4 {
+            height: 123px;
+            width: 91px;
+            position: relative;
+            top: -805px;
+            left: 346px;
+            background-color: #FFFFFF;
+        }
+             #m5 {
+            height: 123px;
+            width: 91px;
+            left: 456px;
+            position:relative;
+            top: -928px;
+            background-color: #FFFFFF;
+        }
+        #cim {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: 173px;
+            left: 45px;
+            background-color: #FFFFFF;
+        }
+        
+        #pend2 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: 51px;
+            left: -63px;
+            background-color: #FFFFFF;
+        }
+        #out {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: 62px;
+            left: 46px;
+            background-color: #FFFFFF;
+        }
+        #field {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: 90px;
+            left: 44px;
+            background-color: #FFFFFF;
+        }
+        #pend1 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: 109px;
+            left: 43px;
+            background-color: #FFFFFF;
+        }
+        #extra1 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: 129px;
+            left: 40px;
+            background-color: #FFFFFF;
+        }
+        #fiel {
+            position:relative;
+            height: 123px;
+            width: 91px;
+            top: -1292px;
+            left: 877px;
+            background-color: #FFFFFF;
+        }
+        #pend {
+            position:relative;
+            height: 123px;
+            width: 91px;
+            top: -1309px;
+            left: 874px;
+            background-color: #FFFFFF;
+        }
+        #xtra {
+            position:relative;
+            height: 123px;
+            width: 91px;
+            top: -1329px;
+            left: 871px;
+            background-color: #FFFFFF;
+        }
+        #step {
+            position:relative;
+            top: -1311px;
+            left: 205px;
+            width: 649px;
+            height: 20px;
+        }
+        #ymt1 
+        {position:relative;
+            height: 123px;
+            width: 91px;
+            top: 1px;
+            left: 7px;
+            background-color: #FFFFFF;
+        }
+        #ymt2 
+        {position:relative;
+            height: 123px;
+            width: 91px;
+            top: -121px;
+            left: 108px;
+            background-color: #FFFFFF;
+        }
+        #ymt3 
+        {position:relative;
+            height: 123px;
+            width: 91px;
+            top: -239px;
+            left: 218px;
+            background-color: #FFFFFF;
+        }
+        #ymt4 
+        {position:relative;
+            height: 123px;
+            width: 91px;
+            top: -362px;
+            left: 326px;
+            background-color: #FFFFFF;
+        }
+        #ymt5 
+        {position:relative;
+            height: 123px;
+            width: 91px;
+            top: -483px;
+            left: 439px;
+            background-color: #FFFFFF;
+        }
+        #zone1 {
+            height: 307px;
+            width: 577px;
+            position:relative;
+            top: -587px;
+            left: 249px;
+        }
+        #ym1 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -468px;
+            left: 11px;
+            background-color: #FFFFFF;
+        }
+        #ym3 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -710px;
+            left: 222px;
+            background-color: #FFFFFF;
+        }
+        #ym5 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -953px;
+            left: 439px;
+            background-color: #FFFFFF;
+        }
+        #ym4 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -832px;
+            left: 330px;
+            background-color: #FFFFFF;
+        }
+        #ym2 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -588px;
+            left: 114px;
+            background-color: #FFFFFF;
+        }
+        #deck1 {
+            height: 125px;
+            width: 91px;
+            position:relative;
+            top: -1370px;
+            left: 877px;
+            background-color: #FFFFFF;
+        }
+        #cim1 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -1257px;
+            left: 877px;
+            background-color: #FFFFFF;
+        }
+         #pend2y {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -1378px;
+            left: 981px;
+            background-color: #FFFFFF;
+        }
+        #out1 {
+            height: 123px;
+            width: 91px;
+            position:relative;
+            top: -1271px;
+            left: 877px;
+            background-color: #FFFFFF;
+        }

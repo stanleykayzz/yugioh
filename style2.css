@@ -1,0 +1,323 @@
+body {
+	background-color: #00B2CC;
+}
+#terrain {
+	margin-left: 472px
+}    
+/*#terrain {
+    margin-top: 46px
+}*/
+/*The top's tenth boxes*/
+#myMonsterZone1 {              
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -811px;
+    left: 9px;
+    background-color: #FFFFFF;
+}
+#myMonsterZone2 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -931px;
+    right: -101px;
+    background-color: #FFFFFF;
+}
+#myMonsterZone3 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1051px;
+    right: -193px;
+    background-color: #FFFFFF;
+}
+#myMonsterZone4 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1171px;
+    right: -285px;
+    background-color: #FFFFFF;
+}
+#myMonsterZone5 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1291px;
+    right: -377px;
+    background-color: #FFFFFF;
+}
+#myMtZone1 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1289px;
+    left: 9px;
+    background-color: #FFFFFF;
+}
+#myMtZone2 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1409px;
+    right: -101px;
+    background-color: #FFFFFF;
+}
+#myMtZone3 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1529px;
+    right: -193px;;
+    background-color: #FFFFFF;
+}
+#myMtZone4 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1649px;
+    right: -285px;
+    background-color: #FFFFFF;
+}
+#myMtZone5 {
+	height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1769px;
+    right: -377px;
+    background-color: #FFFFFF;
+}
+/*Below's tenth boxes*/
+#l1 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: 22px;
+    left: 9px;
+    background-color: #FFFFFF;
+}
+#l2 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -98px;
+    right: -101px;
+    background-color: #FFFFFF;
+}
+#l3 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -218px;
+    right: -193px;
+    background-color: #FFFFFF;
+}
+#l4 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -338px;
+    right: -285px;
+    background-color: #FFFFFF;
+}
+#l5 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -458px;
+    right: -377px;
+    background-color: #FFFFFF;
+}
+#l6 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -456px;
+    left: 9px;
+    background-color: #FFFFFF;
+}
+#l7 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -576px;
+    right: -101px;
+    background-color: #FFFFFF;
+}
+#l8 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -696px;
+    right: -193px;;
+    background-color: #FFFFFF;
+}
+#l9 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -816px;
+    right: -285px;
+    background-color: #FFFFFF;
+}
+#l10 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -936px;
+    right: -377px;
+    background-color: #FFFFFF;
+}
+/*Left border's boxes. Using #l6 and #l1 as reference*/
+#myExtraDeck {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -1827px;
+    left: -120px;
+    background-color: #FFFFFF;
+}
+#myPendulum1 {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -2069px;
+    left: -83px;
+    background-color: #FFFFFF;
+}
+#myMagicField {
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -2311px;
+    left: -120px;
+    background-color: #FFFFFF;
+}
+/*Top left border's boxes.*/
+#d4 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -2805px;
+    left: -120px;
+    background-color: #FFFFFF;
+}
+#d5 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -2803px;
+    left: -83px;
+    background-color: #FFFFFF;
+}
+#d6 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -2801px;
+    left: -120px;
+    background-color: #FFFFFF;
+}
+/*Right border's boxes.*/
+#myGraveyard {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -2790px;
+    left: 505px;
+    background-color: #FFFFFF;
+}
+#myPendulum2 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -2788px;
+    left: 469px;
+    background-color: #FFFFFF;
+}
+#myDeck {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -2786px;
+    left: 505px;
+    background-color: #FFFFFF;
+}
+/*Top Right border's boxes.*/
+#d10 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -3525px;
+    left: 505px;
+    background-color: #FFFFFF;
+}
+#d11 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -3523px;
+    left: 469px;
+    background-color: #FFFFFF;
+}
+#d12 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -3521px;
+    left: 505px;
+    background-color: #FFFFFF;
+}
+/*Zone Boxes*/
+#myOffSide {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -3510px;
+    left: 613px;
+    background-color: #FFFFFF;
+}
+#z2 {              
+    height: 120px;
+    width: 90px;
+    position:relative;
+    top: -3761px;
+    left: -229px;
+    background-color: #FFFFFF;
+}
+.myHand{
+    position:relative;
+    background-color: #FFFFFF;
+    height: 120px;
+    top: -3372px;
+    left: -97px;
+    width: 684px;
+}
+#myEnemyHand{
+    position:relative;
+    background-color: #FFFFFF;
+    height: 120px;
+    width: 684px;
+    left: -103px;
+}
+.card{    
+    height: 120px;
+    width: 90px;
+    position:relative;
+}
+.rock{
+    background-image:url(img/rock.PNG);
+			background-position: center;
+    background-size:cover;
+}
+.paper{    
+    background-image:url(img/paper.PNG);
+			background-position: center;
+    background-size:cover;
+}
+.scissor{     
+    background-image:url(img/scissor.PNG);
+			background-position: center;
+    background-size:cover;
+}

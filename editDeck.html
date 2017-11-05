@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <!-- on met le fichier json dans la page pour recupérer tous ses objets-->
+    <script type="application/json"></script>
+    <style type="text/css">
+        .deckEditScreen {
+            background-color: #666666;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0%;
+    left:0%;
+            float : left;
+    right:0%;
+    margin-right:0px;
+    margin-left:0px;
+        }
+        .details {
+            background-color: #6600FF;
+            margin-right:80%;
+            width:20%;
+            height:100%;
+            float:left;
+    position:relative;
+        }
+        .selectedCard {
+            background-color: #CC6600;
+            height:40%;
+        }
+        .selectedCardName {
+            background-color: #FF00FF;
+            height:10%;
+        }
+        .selectedCardDetails {
+            background-color: #FFFFFF;
+            height:50%;
+        }
+        .secondScreen {
+           /* background-color: #00CCFF;
+            height:100%;
+            margin-left:21%;
+            position:relative;
+            margin-right:40%;
+            width:40%;*/
+                background-color: #00CCFF;
+            height:100%;
+            margin-left:21%;
+            position:relative;
+            margin-right:0%;
+            width:79%;
+        }
+        .detailedPicture {
+            height: 100%;
+            width: 100%;
+            background-image:url(img/galaxy_eyes.jpg);
+            background-repeat: round;
+        }
+        .thirdScreen {
+            background-color: #33CC33;
+            position : absolute;
+            margin-left:60%;
+            width:40%;
+            height:100%;
+            overflow: auto;
+        }
+        .deck {
+            height:55%;
+            width:60%;
+            background-color: #f00;
+        }
+    </style><style type="text/css">
+        .list {
+            position:absolute;
+            background-color: #FF3399;
+            width:100%;
+            height:10%;
+        }
+        .cardInList {
+            height:100%;
+            width:30%;
+            float:left;
+            z-index:20;
+        }
+        .infoCard {
+            background-color: #FFFF00;
+            height:100%;
+            width:70%;
+            margin-left:30%;
+        }
+        .name {
+            background-color: #3333CC;
+            height:40%;
+            width:100%;
+        }
+        .detailsOfCard {
+            background-color: #66FF33;
+            height:60%;
+            width:100%;
+        }
+        .cellule {
+            background-color: #999999;
+            height:100%;
+            width:100%;
+        }
+        .infoCardTab {
+            height: 60%;
+        }
+        /*.hinotama{
+            background-image:url(img/4350_1.bmp);
+            background-repeat:round;
+        }
+        .mooyanCurry{
+            background-image:url(img/4344_1.bmp);
+            background-repeat:round;
+        }
+        .sparks{
+            background-image:url(img/4349_1.bmp);
+            background-repeat:round;
+        }
+        .dianKeito{
+            background-image:url(img/4348_1.bmp);
+            background-repeat:round;
+        }*/
+    </style>
+</head>
+<body>
+    
+    <!-- la div globale de l'écran-->
+    <div class="deckEditScreen">        
+    <!-- la div de détails de la carte selectionné-->
+        <div class="details">
+    <!-- est composé de l'image de la carte selectionné-->
+            <div class="selectedCard">
+                <div class="detailedPicture"></div>
+            </div>
+    <!-- le nom de la carte selectionné-->
+            <div class="selectedCardName"></div>
+    <!-- et tous les détails de la carte selectionné-->
+            <div class="selectedCardDetails"></div>
+        </div>        
+        <!-- la deuxième partie de l'écran est coupé en deux avec le deck et le coffre-->
+        <div class="secondScreen">
+            <div class="deck">
+            <script type="text/javascript">
+                //les cartes sont draggable
+               // $('.cardInList').draggable();
+                //le deck est une zone droppable de carte de max 80
+             //   $('.deck').droppable();
+
+
+                //le l'extradeck est une zone droppable de carte de max 80
+
+
+                //le sidedeck est une zone droppable de carte de max 80
+
+            </script>
+            
+        <!-- le coffre-->
+        <div class="thirdScreen">
+            <script src="Scripts/jquery-3.1.1.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script type="text/javascript">
+
+                                     //les cardInList sont des cartes draggable qu'on drop dans la div deck
+
+                                     //lorsqu'on clique sur ue carte l'utilisateur déplace une copie de la carte
+
+                                     function beginToEditMyDeck()
+                                     {
+                                         //cartes draggables
+                                         $('.cardInList').draggable({/* revert: true,*/ helper: "clone" });
+                                         //deck droppable
+                                         $('.deck').droppable({accept:".cardInList"});
+                                     }
+
+                                     
+
+                                     /**********************
+                                     
+                                     il faudra aussi créer une class css pour chaque cartes pour que les differentes cartes de la liste ne se retrouveent pas toutes avec le même background.
+
+                                     #bien chiant, GOOD LUCK!!
+                                     
+                                     ***********************/
+
+                                     theTab = [
+	                                 {"className":"hinotama", "name":"Hinotama","description":"infige 500 point de degat a son adversaire","type":0,"effects":1,"auto":true,"myTarget":{},"amount":500,"pic":"allCard/4350_1.bmp"},
+                                     {"className":"mooyanCurry", "name":"Mooyan curry","description":"Augmente de 200 les points de vies du joueur choisis","type":0,"effects":1,"auto":true,"myTarget":{},"amount":200,"pic":"allCard/4344_1.bmp"},
+                                     {"className":"RedMedecine", "name":"Medicament rouge","description":"Augmente de 500 vos points de vies","type":0,"effects":1,"auto":true,"myTarget":{},"amount":500,"pic":"allCard/4345_1.bmp"},
+                                     {"className":"gobMedecine", "name":"Medicament secret des gobelins","description":"augmente de 600 vos points de vies","type":0,"effects":1,"auto":true,"myTarget":{},"amount":600,"pic":"allCard/4346_1.bmp"},
+                                     {"className":"PuritySpirit", "name":"Esprit de pureté","description":"augmente de 800 vos points de vies","type":0,"effects":1,"auto":true,"myTarget":{},"amount":800,"pic":"allCard/4347_1.bmp"},
+                                     {"className":"sparks", "name":"Etincelles","description":"infigez 200 points de dommage à votre adversaire","type":0,"effects":1,"auto":true,"myTarget":{},"amount":200,"pic":"allCard/4349_1.bmp"},
+                                     {"className":"dianKeito", "name":"Dian keito le maitre guerriseur","description":"augmenter vos points de vie de 1000 points","type":0,"effects":1,"auto":true,"myTarget":{},"amount":1000,"pic":"allCard/4348_1.bmp"}
+                                     ]
+                                     //dans la page d'édition du deck on va créer une liste de cartes grace aux données dans le fichier json
+                                     //pour chaque objets du fichier json on crée un objet havascript
+                                     //et on utilise cet objet pour personnaliser chaque div de la liste
+                                     count = 0;
+                                     while (count < theTab.length)
+                                     {
+                                         $('div.thirdScreen').append(createCardToList(theTab[count], count));
+                                         console.log(theTab[count]);
+                                         count++;
+                                     }
+                                     // t.forEach();
+
+                                     //je crée une fonction quie permet de créer des div html pour lister chaque cartes
+                                     function createCardToList(unObjetCarte,val) {
+                                         document.write("<div class=\"list\">");
+                                         document.write("        <div class=\"cardInList c"+val+"\"><\/div>");
+                                         document.write("        <div class=\"infoCard\">");
+                                         document.write("            <div class=\"name\"><\/div>");
+                                         document.write("            <div class=\"detailsOfCard\">");
+                                         document.write("                <!-- tableau à 11 colonne avec : attribut, type, étoiles x, nombre d'étoile, scale x,nbre scale,ATK , point atk, \/, DEF, point def  -->");
+                                         document.write("                    <table class=\"cellule\">");
+                                         document.write("                        <tr >");
+                                         document.write("                            <td class=\"infoCardTab\">A<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">T<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">E x<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">N<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">S x<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">N<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">ATK<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">N<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">\/<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">DEF<\/td>");
+                                         document.write("                            <td class=\"infoCardTab\">N<\/td>");
+                                         document.write("                        <\/tr>");
+                                         document.write("                    <\/table>");
+                                         document.write("            <\/div>");
+                                         document.write("        <\/div>");
+                                         document.write("    <\/div>");
+                                         document.write("    <br><br><br><br><br>");
+
+                                         //on crée une variable old class pour facilité le remove classe lorsqu'on détail une class
+                                         //oldClass= 
+                                         laDiv = "div.cardInList.c" + val;
+                                         cardName ="div.list >"+ laDiv + " > .infoCard > div.name";
+                                         //on ajoute les données de l'objet dans la div
+                                         $(laDiv).addClass(unObjetCarte.className).css({ 'background-image': 'url(' + unObjetCarte.pic + ')', 'background-size': 'cover', 'background-repeat': 'round' });
+                                         $(cardName).append(unObjetCarte.name)
+                                         //$('div.name').append(unObjetCarte.name);
+                                         $(laDiv).mouseover(function () { $(".detailedPicture").css({ 'background-image': 'url(' + unObjetCarte.pic + ')', 'background-size': 'cover', 'background-repeat': 'round' }); });
+                                         $(laDiv).mouseover(function () {
+                                             $(".selectedCardName").empty();
+                                             $(".selectedCardName").append('<h2>' + unObjetCarte.name + '</h2>');
+                                         }
+                                         );
+                                         $(laDiv).mouseover(function () {
+                                             $(".selectedCardDetails").empty();
+                                             $(".selectedCardDetails").append('<h2>' + unObjetCarte.description + '</h2>');
+                                         }
+                                         );
+                                     }
+    </script></div>
+            </div>
+        </div>
+        <!-- le coffre--
+        <div class="thirdScreen"></div>-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Configuration du duel</title>
+    <meta charset="utf-8" />
+    
+</head>
+<body>
+    <div>
+        Choose duel settings
+        <form class="duelSettings">
+            <select class="selectpicker">
+                <option>Duel</option>
+                <option>Tag Duel</option>
+                <option>Battle Royal</option>
+            </select>
+            <select class="selectpicker">
+                <option>Single</option>
+                <option>Match</option>
+            </select>
+            <select class="selectpicker">
+                <option>LP 2000</option>
+                <option>LP 4000</option>
+                <option>LP 8000</option>
+                <option>LP 12000</option>
+                <option>LP 16000</option>
+            </select>
+            <select class="selectpicker">
+                <option>NO TIME LIMIT</option>
+                <option>30 seconds</option>
+                <option>1 minutes</option>
+                <option>2 minutes</option>
+                <option>5 minutes</option>
+            </select>
+            <button >OK</button>
+        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="Duel.js"></script>
+    <script type="text/javascript" src="Player.js"></script>
+    <script src="Card.js"></script>
+    <script>
+        /*
+        On fait un rock paper pour determiner le premier
+        Le duel commence
+        DP pioche une carte et passe en SP puis en MP1
+        le joueur choisis de passer en bp, mp2 ou ep
+        //
+        quand un tour commence, on pioche en dp, en verifie en sp les cartes et on passe en mp1
+        */
+        var socket = io.connect('http://localhost:8888/duelSetting');
+        var session = sessionStorage;
+        //en fonction des pramètres du duel on configure le joueur
+        var me = new Player();
+        var myOpponent;
+        me.playerID = parseInt(session.getItem("userId"));
+        me.pseudo = session.getItem("userlogin");
+        me.lifePoints = 8000;
+        me.pseudo = session.getItem("userlogin");
+var list = []
+
+        //On envoie le joueur au serveur
+//socket.emit("sendPlayerToServer", { playerID: me.playerID, pseudo: me.pseudo, lifePoints: me.lifePoints, deck: me.deck, hand: me.hand, playerTurn: me.playerTurn });
+socket.emit("sendPlayerToServer",me);
+        socket.on("sendDuelList", function (xyz) {
+            list = xyz;
+        });
+
+        bed = new Monster("dragon blanc aux yeux bleus", "bla", 8, Attribute.light, MonsterType.dragon, 3000, 2500)
+        d = [bed, bed, bed, bed, bed, bed, bed, bed]
+        me.deck = d;
+        me.hand = [bed, bed, bed];
+
+        //On créer les div à appliquer dans le tableau de duel
+
+
+        if (list[0].playerID == me.playerID)
+            duel = new Duel([list[0], list[1]]);
+        else
+            duel = new Duel([list[1], list[0]]);
+
+
+        socket.on('sendDuelInfo', function (me) {
+            myOpponent = me;
+        })
+    </script>
+</body>
+</html>

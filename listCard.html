@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="jquery-2.1.4.js"></script>
+    <style type="text/css">
+        .list {
+            position:absolute;
+            background-color: #FF3399;
+            width:100%;
+            height:80%;
+        }
+        .cardInList {
+            height:100%;
+            width:30%;
+            float:left;
+        }
+        .infoCard {
+            background-color: #FFFF00;
+            height:100%;
+            width:70%;
+            margin-left:30%;
+        }
+        .name {
+            background-color: #3333CC;
+            height:40%;
+            width:100%;
+        }
+        .detailsOfCard {
+            background-color: #66FF33;
+            height:60%;
+            width:100%;
+        }
+        .cellule {
+            background-color: #999999;
+            height:100%;
+            width:100%;
+        }
+        .infoCardTab {
+            height: 60%;
+        }
+    </style>
+    <script type="text/javascript">
+        //on crée une fonction qui génére ce code html en javascript dans les div qui listes les cartes du coffre et en leur passe en paramètre les différents caractéristique de la carte
+
+        //dans la page d'édition du deck on va créer une liste de cartes grace aux données dans le fichier json
+        //pour chaque objets du fichier json on crée un objet havascript
+        //et on utilise cet objet pour personnaliser chaque div de la liste
+
+        //objet carte
+        hino = { "name": "Hinotama", "description": "infige 500 point de degat a son adversaire", "type": 0, "effects": 1, "auto": true, "myTarget": {}, "amount": 500, "pic": "allCard/4350_1.bmp" }
+        //on ajoute les données de l'objet dans la div
+        $('div.cardInList').css({ 'background-image': 'url(' + hino.pic + ')', 'background-size': 'cover', 'background-repeat': 'round' });
+        $('div.name').append(hino.name);
+    </script>
+</head>
+<body>
+    <div class="list">
+        <div class="cardInList"></div>
+        <div class="infoCard">
+            <div class="name"></div>
+            <div class="detailsOfCard">
+                <!-- tableau à 11 colonne avec : attribut, type, étoiles x, nombre d'étoile, scale x,nbre scale,ATK , point atk, /, DEF, point def  -->
+                    <table class="cellule">
+                        <tr >
+                            <td class="infoCardTab">A</td>
+                            <td class="infoCardTab">T</td>
+                            <td class="infoCardTab">E x</td>
+                            <td class="infoCardTab">N</td>
+                            <td class="infoCardTab">S x</td>
+                            <td class="infoCardTab">N</td>
+                            <td class="infoCardTab">ATK</td>
+                            <td class="infoCardTab">N</td>
+                            <td class="infoCardTab">/</td>
+                            <td class="infoCardTab">DEF</td>
+                            <td class="infoCardTab">N</td>
+                        </tr>
+                    </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+//ce fichier JSON contient toutes les cartes yugioh
+//il est appelé dans l'application et on crée un objet à partir de chaque objet dans ce fichier
+
+
+[
+	{"className":"hinotama", "name":"Hinotama","description":"infige 500 point de degat a son adversaire","type":0,"effects":1,"auto":true,"myTarget":{},"amount":500,"pic":"allCard/4350_1.bmp"},
+	{"className":"mooyanCurry", "name":"Mooyan curry","description":"Augmente de 200 les points de vies du joueur choisis","type":0,"effects":1,"auto":true,"myTarget":{},"amount":200,"pic":"allCard/4344_1.bmp"},
+	{"className":"RedMedecine", "name":"Medicament rouge","description":"Augmente de 500 vos points de vies","type":0,"effects":1,"auto":true,"myTarget":{},"amount":500,"pic":"allCard/4345_1.bmp"},
+	{"className":"gobMedecine", "name":"Medicament secret des gobelins","description":"augmente de 600 vos points de vies","type":0,"effects":1,"auto":true,"myTarget":{},"amount":600,"pic":"allCard/4346_1.bmp"},
+	{"className":"PuritySpirit", "name":"Esprit de pureté","description":"augmente de 800 vos points de vies","type":0,"effects":1,"auto":true,"myTarget":{},"amount":800,"pic":"allCard/4347_1.bmp"},
+	{"className":"sparks", "name":"Etincelles","description":"infigez 200 points de dommage à votre adversaire","type":0,"effects":1,"auto":true,"myTarget":{},"amount":200,"pic":"allCard/4349_1.bmp"},
+	{"className":"dianKeito", "name":"Dian keito le maitre guerriseur","description":"augmenter vos points de vie de 1000 points","type":0,"effects":1,"auto":true,"myTarget":{},"amount":1000,"pic":"allCard/4348_1.bmp"},
+	{"className":"function(){}", "name":"Dian keito le maitre guerriseur","description":"augmenter vos points de vie de 1000 points","type":0,"effects":1,"auto":true,"myTarget":{},"amount":1000,"pic":"allCard/4348_1.bmp"}
+
+]

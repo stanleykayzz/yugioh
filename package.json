@@ -1,0 +1,30 @@
+{
+  "name": "ygo-duel-world",
+  "version": "0.0.1",
+  "description": "Jeux de Yu-Gi-OH! multiplayer \u001b[D\u001b[Cweb avec chat temps réel",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "later"
+  },
+  "keywords": [
+    "socket.io",
+    "javascript",
+    "nodejs",
+    "yu-gi-oh!"
+  ],
+  "author": "stanleykayzz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "mongodb": "^2.2.24",
+    "socket.io": "^2.0.3",
+    "socket.io-handshake": "0.0.10",
+    "socketio": "^1.0.0",
+    "url": "^0.11.0"
+  }
+}

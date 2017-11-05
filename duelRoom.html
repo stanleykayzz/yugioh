@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Waiting room</title>
+    <meta charset="utf-8" />    
+</head>
+<body>
+    <div>
+        Waiting duel room
+        <form class="duelRoom">
+              <input class="form-control firstlogin" type="text" aria-disabled="true"/>
+              <input class="form-control firstDeck" type="text" aria-disabled="true"/>
+            <br /><br /><br /><br />
+            VS            <br /><br /><br /><br />
+
+              <!--<select class="selectpicker">
+                <option>LP 2000</option>
+                <option>LP 4000</option>
+                <option>LP 8000</option>
+                <option>LP 12000</option>
+                <option>LP 16000</option>
+              </select>-->
+              <input class="form-control secondlogin" type="text" aria-disabled="true"/>
+              <input class="form-control secondDeck" type="text" aria-disabled="true"/>        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="Duel.js"></script>
+    <script type="text/javascript" src="Player.js"></script>
+    <script src="Card.js"></script>
+    <script>
+        /*
+        On fait un rock paper pour determiner le premier
+        Le duel commence
+        DP pioche une carte et passe en SP puis en MP1
+        le joueur choisis de passer en bp, mp2 ou ep
+        //
+        quand un tour commence, on pioche en dp, en verifie en sp les cartes et on passe en mp1
+        */
+        function recursiveVerif() {
+            console.log("vide");
+            recursiveVerif();
+        }
+        var socket = io.connect('http://localhost:8888/duelRoom');
+        var session = sessionStorage;
+
+        var myOpponent = {};
+
+        //On envoie le joueur au serveur
+        //socket.emit("sendPlayerToServer", { playerID: me.playerID, pseudo: me.pseudo, lifePoints: me.lifePoints, deck: me.deck, hand: me.hand, playerTurn: me.playerTurn });
+        //On se connecte, tant l'opponent est vide on verifie
+        recursiveVerif();
+
+        socket.emit("sendPlayerInfoToRoom", { id: parseInt(session.getItem("userId")), name: session.getItem("userlogin") });
+        socket.on("youAreFirst", function () {
+            $('.firstlogin')[0].value = session.getItem('userlogin');
+        /*socket.on('opponentInfo', function (x) {
+            myOpponent = { id: x.id, name: x.nom };
+            $('.secondlogin')[0].value = myOpponent.name;
+        });*/
+        });
+        socket.on("youAreSecond", function () {
+            $('.secondlogin')[0].value = session.getItem('userlogin');
+            /*socket.on('opponentInfo', function (x) {
+                myOpponent = { id: x.id, name: x.nom };
+                $('.firstlogin')[0].value = myOpponent.name;
+            });*/
+        });
+        socket.on('opponentInfo', function (x) {
+            console.log("XXXXXXXXXXXXXXXXXXXXXX");
+            myOpponent = x;
+        });
+        
+    </script>
+</body>
+</html>

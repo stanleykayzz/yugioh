@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Connexion HTML App</title>
+    <link href="Scripts/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>TypeScript HTML App</h1>
+
+    <div id="content">
+        <form action="menu" method="get">
+            <input class="login" type="text" placeholder="Votre pseudo" />
+            <input class="password" type="password" placeholder="mot de passe" />
+
+            <input id="validateLogin" type="submit" value="Login"/>
+        </form>
+    </div>
+<!--<script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.jss"></script>-->
+    <script src="socket.io/socket.io.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script>
+        function user() {
+            this.id=0;
+            this.pseudo = '';
+            this.psw = '';
+        }
+        user.prototype.addPseudo = function (param) {
+            this.pseudo = param;
+        }
+        user.prototype.addPassword = function (param) {
+            this.psw = param;
+        }
+        var me = new user();
+        var session = sessionStorage;
+        $("#validateLogin").on("click", function (e) {
+            if ($(".login")[0].value == "" || $(".password")[0].value == '') {
+                e.preventDefault();
+                alert("Saisissez votre nom et votre mot de passe");
+            }
+            else {
+                e.preventDefault();
+                me.addPseudo($(".login")[0].value.toString());
+                me.addPassword($(".password")[0].value.toString());
+                console.log(me);
+                //var socket = io.connect('http://localhost:8888');
+                var socket = io.connect('http://localhost:1037');
+                setTimeout(function () { document.location.href = "menu" }, 2000);
+                console.log("on envoie les données")
+                socket.emit("userConnectedInfo", { id: me.id, pseudo: me.pseudo, psw: me.psw });
+                console.log("on recupère les donées du joueur au server");
+            }
+
+            socket.on("getYourPlayerId", function (x) {
+                me.id = x.playerId;
+                session.setItem('userId', me.id);
+                session.setItem('userlogin', me.pseudo);
+                session.setItem('userPSW', me.psw);
+                console.log(session);
+            })
+        })
+        //console.log(password);
+
+    </script>
+</body>
+</html>

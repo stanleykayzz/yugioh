@@ -1,0 +1,13 @@
+
+/**
+ * 
+ */
+class CarteAbstraite {
+
+    /**
+     * 
+     */
+    public constructor() {
+    }
+
+}

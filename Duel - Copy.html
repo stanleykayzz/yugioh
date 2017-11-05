@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style2.css" />
+    <title>Duel</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        div{
+            position:absolute;
+        }
+        .turn {
+            margin-top: 0px;
+            background-color: #9966FF;
+            position:relative;
+            top: -3884px;
+            left: -19px;
+            width: 507px;
+        }
+    </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="terrain">
+        <div id="myEnemyHand"></div>
+        <div id="l1"></div>
+        <div id="l2"></div>
+        <div id="l3"></div>
+        <div id="l4"></div>
+        <div id="l5"></div>
+        <div id="l6"></div>
+        <div id="l7"></div>
+        <div id="l8"></div>
+        <div id="l9"></div>
+        <div id="l10"></div>
+        <div id="myMonsterZone1"></div>
+        <div id="myMonsterZone2"></div>
+        <div id="myMonsterZone3"></div>
+        <div id="myMonsterZone4"></div>
+        <div id="myMonsterZone5"></div>
+        <div id="myMtZone1"></div>
+        <div id="myMtZone2"></div>
+        <div id="myMtZone3"></div>
+        <div id="myMtZone4"></div>
+        <div id="myMtZone5"></div>
+        <div id="myExtraDeck"></div>
+        <div id="myPendulum1"></div>
+        <div id="myMagicField"></div>
+        <div id="d4"></div>
+        <div id="d5"></div>
+        <div id="d6"></div>
+        <div id="myGraveyard"></div>
+        <div id="myPendulum2"></div>
+        <div id="myDeck"></div>
+        <div id="d10"></div>
+        <div id="d11"></div>
+        <div id="d12"></div>
+        <div id="myOffSide"></div>
+        <div id="z2"></div>
+        <div class="myHand"></div>
+    <div class="turn">
+        <button class="dp">DP</button>
+        <button class="sp">SP</button>
+        <button class="mp1">MP1</button>
+        <button class="bp">BP</button>
+        <button class="mp2">MP2</button>
+        <button class="ep">EP</button>         
+    </div>
+    </div>    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/jquery-3.1.1.intellisense.js"></script>
+
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="Duel.js"></script>
+    <script type="text/javascript" src="Player.js"></script>
+    <script src="Card.js"></script>
+    <script src="Monster.js"></script>
+    <script src="Attribute.js"></script>
+    <script src="MonsterType.js"></script>
+    <script src="FrameCard.js"></script>
+    <script src="MonsterZone.js"></script>
+    <script src="TrapMagicZone.js"></script>
+    <script src="Graveyard.js"></script>
+    <script src="OutZone.js"></script>
+    <script src="PendulumZone.js"></script>
+    <script src="ExtraDeckZone.js"></script>
+    <script src="FieldZone.js"></script>
+    <script src="PlayerSideField.js"></script>
+    <script src="GameField.js"></script>
+    <script src="Turn.js"></script>
+    <script src="DrawPhase.js"></script>
+    <script src="StandbyPhase.js"></script>
+    <script src="MainPhase.js"></script>
+    <script src="BattlePhase.js"></script>
+    <script src="EndPhase.js"></script>
+    <!--<script>
+        function createAllPlayersCards(me) {
+            //pour chaque carte dans le deck du joueur 1 
+            //on crée une div carte et on les ajoute dans la zone deck
+            count = 0;
+
+            me.deck.forEach(function (element) {
+                console.log("dans le deck on a " + element);
+                var carte = document.createElement('div');
+                //carte.className = 'card';
+                var laClass = 'carte' + count;
+                //carte.className = 'card';
+                //carte.className = laClass;
+                carte.addClass(laClass)
+                .css({ 'background-image': 'url(allCard/4007_1.bmp)', 'background-size': 'cover', 'background-repeat': 'round'/*, 'z-index': count*/ });
+                $('#myDeck').append(carte);
+                count = count + 1;
+            });
+
+        }
+        var socket = io.connect('http://localhost:8888/duel');
+        var session = sessionStorage;
+
+        //en fonction des pramètres du duel on configure le joueur
+        /*var me = new Player();
+        var myOpponent;
+        me.playerID = parseInt(session.getItem("userId"));
+        me.pseudo = session.getItem("userlogin");
+        me.lifePoints = 8000;
+
+        bed = new Monster("dragon blanc aux yeux bleus", "bla", 8, Attribute.light, MonsterType.dragon, 3000, 2500)
+        d = [bed, bed, bed, bed, bed, bed, bed, bed]
+        me.deck = d;
+        me.hand = [bed, bed, bed];
+        var list = [];*/
+        var me = new Player();
+        me.playerID = 1;
+        me.pseudo = ("Al");
+        me.lifePoints = 8000;
+
+        bed = new Monster("dragon blanc aux yeux bleus", "bla", 8, Attribute.light, MonsterType.dragon, 3000, 2500)
+        d = [bed, bed, bed, bed, bed, bed, bed, bed]
+        me.deck = d;
+        me.hand = [bed, bed, bed];
+        createAllPlayersCards();
+
+        //On envoie le joueur au serveur
+//socket.emit("sendPlayerToServer", { playerID: me.playerID, pseudo: me.pseudo, lifePoints: me.lifePoints, deck: me.deck, hand: me.hand, playerTurn: me.playerTurn });
+        socket.emit("sendPlayerToServer", me);
+
+            socket.on("sendDuelList", function (xyz) {
+                list = xyz;
+                if (list[0].playerID == me.playerID) {
+                    myOpponent = list[1];
+                }
+                else
+                    myOpponent = list[0];
+            });
+        
+socket.on('sendDuelInfo', function (me) {
+            myOpponent = me;
+        });
+        //On créer les div à appliquer dans le tableau de duel
+        //while (list.length < 2) {
+        if (list[0].playerID == me.playerID)
+            duel = new Duel([list[0], list[1]]);
+        else
+            duel = new Duel([list[1], list[0]]);
+        //}      
+
+        //quand on click sur dp
+        $('.dp').on('click', function () {
+            //si c'est mon tour de jouer 
+            if (me.turnToPlay == true) {
+                //j'active ma dp et je l'envoie au server
+                me.playerTurn.drawphase = true;
+                $('.dp').css("background-color", "white");
+                console.log("je pioche");
+                socket.emit('emitDrawPhase',duel);
+            }
+        }); 
+        //quand on click sur sp
+        $('.sp').on('click', function () {
+            //si c'est mon tour de jouer 
+            if (me.turnToPlay == true) {
+                //j'active ma sp et je l'envoie au server
+                me.playerTurn.drawphase = false;
+                me.playerTurn.standbyphase = true;
+                $('.sp').css("background-color", "white");
+                console.log("sp, on peut activer des effets");
+                socket.emit('emitStandByPhase', duel);
+            }
+        });
+        //quand on click sur mp1
+        $('.mp1').on('click', function () {
+            //si c'est mon tour de jouer 
+            if (me.turnToPlay == true) {
+                //j'active ma dp et je l'envoie au server
+                me.playerTurn.standbyphase = false;
+                me.playerTurn.mainphase1 = true;
+                $('.mp1').css("background-color", "white");
+                console.log("je suis en mainphase 1");
+                socket.emit('emitMainPhase1', duel);
+
+            }
+        });
+        //quand on click sur bp
+        $('.bp').on('click', function () {
+            //si c'est mon tour de jouer 
+            if (me.turnToPlay == true) {
+                //j'active ma dp et je l'envoie au server
+                me.playerTurn.mainphase1 = false;
+                me.playerTurn.battlephase = true;
+                $('.bp').css("background-color", "white");
+                console.log("je suis en battle phase");
+                socket.emit('emitBattlePhase', duel);
+
+            }
+        });
+        socket.on('getDrawPhase', function (duel) {
+            console.log("sa dp");
+        });
+        socket.on('getStandByPhase', function (duel) {
+            console.log("sa sp");
+        });
+        socket.on('getBattlePhase', function (duel) {
+            console.log("sa bp");
+        });
+        socket.on('getMainPhase1', function (duel) {
+            console.log("sa mp1");
+        });
+    </script>-->
+    <script>
+        function createAllPlayersCards(me) {
+            //pour chaque carte dans le deck du joueur 1 
+            //on crée une div carte et on les ajoute dans la zone deck
+            var count = 0;
+            me.deck.forEach(function (element) {
+                console.log("dans le deck on a " + element);
+                var carte = document.createElement('div');
+                //carte.className = 'card';
+                var laClass = 'carte' + count;
+                //carte.className = 'card';
+                carte.className = laClass;
+                //carte.addClass(laClass);
+                $(carte).css({ 'background-image': 'url(allCard/4007_1.bmp)', 'background-size': 'cover', 'background-repeat': 'round'/*, 'z-index': count*/ });
+                //carte.css({ 'background-image': 'url(allCard/4007_1.bmp)', 'background-size': 'cover', 'background-repeat': 'round'/*, 'z-index': count*/ });
+                $('#myDeck').append($(carte));
+                count = count + 1;
+            });
+
+        }
+
+        var carte = document.createElement('div');
+        carte.className = 'eee';
+        var me = new Player();
+        me.playerID = 1;
+        me.pseudo = ("Al");
+        me.lifePoints = 8000;
+
+        bed = new Monster("dragon blanc aux yeux bleus", "bla", 8, Attribute.light, MonsterType.dragon, 3000, 2500)
+        d = [bed, bed, bed, bed, bed, bed, bed, bed]
+        me.deck = d;
+        me.hand = [bed, bed, bed];
+
+
+    </script>
+</body>
+</html>

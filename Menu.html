@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Menu</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <!-- liste de choses a faire 
+        STORY
+        DUEL
+        OPTION
+        EDITDECK
+        TRANING
+        ETC...-->
+    <button>Duel</button>
+    <button>Edit</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script>
+        var session = sessionStorage;
+        var socket = io.connect('http://localhost:8888/menu');
+        function user() {
+            this.id = 0;
+            this.pseudo = '';
+        }
+        user.prototype.addPseudo = function (param) {
+            this.pseudo = param;
+        }
+        user.prototype.addPassword = function (param) {
+            this.psw = param;
+        }
+        var me = new user();
+        me.id = parseInt(session.getItem("userId"));
+        me.pseudo = session.getItem("userlogin");
+
+
+    </script>
+</body>
+</html>

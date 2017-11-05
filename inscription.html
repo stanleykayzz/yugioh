@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Inscription</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div class="formDiv">
+    <form action="/" method="get" id="suscribe">
+        <input class="lastname" type="text" placeholder="Nom"/><br />
+        <input class="firstname" type="text" placeholder="Prenom"/><br />
+        <input class="email" type="email" placeholder="email"/><br />
+        <input class="login" type="text" placeholder="pseudo"/><br />
+        <input class="password" type="text" placeholder="mdp"/><br />
+        <input class="validateSub" type="submit" value="Valider" />
+    </form>
+    </div>
+<!--    <script src="/socket.io/socket.io.js"></script>-->
+    <script src="socket.io/socket.io.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script>
+        //On se connect a socket.io
+        var socket = io.connect('http://localhost:1037/inscription');
+        //var socket = io.connect('http://localhost:8888/inscription');
+
+        //On enregistre les infos en base 
+        $(".validateSub").on("click", function () {
+            socket.emit("InsertNewUser", {
+                firstname: $(".firstname")[0].value,
+                lastname: $(".lastname")[0].value,
+                email: $(".email")[0].value,
+                login: $(".login")[0].value,
+                password: $(".password")[0].value
+            });
+            //ensuite on se déco pour voir si ça passe
+            socket.disconnect();
+        });
+        //on affiche un message de validation
+
+        //on redirige vers la page de login
+    </script>
+</body>
+</html>
